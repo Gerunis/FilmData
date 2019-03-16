@@ -22,9 +22,9 @@ namespace FilmData
         /// </summary>
         public DateTime DOB { get; private set; }
         /// <summary>
-        /// Работы. Должность и описание
+        /// Список работ
         /// </summary>
-        public Dictionary<Film, Tuple<Position, string>> Works { get; private set; }
+        public List<Work> Works { get; private set; }
         /// <summary>
         /// Фото
         /// </summary>

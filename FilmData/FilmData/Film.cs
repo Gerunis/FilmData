@@ -53,29 +53,14 @@ namespace FilmData
         /// </summary>
         public AgeRating AgeRating { get; private set; }
         /// <summary>
-        /// Актеры и съемочная команда. Позиция и описание
+        /// Актеры и съемочная команда
         /// </summary>
-        public Dictionary<Actor,Tuple<Position, string>> Credits { get; private set; }
+        public List<Work> Credits { get; private set; }
         /// <summary>
         /// Постер
         /// </summary>
         public byte[] Poster { get; private set; }
         
-    }
-
-    /// <summary>
-    /// Должности
-    /// </summary>
-    public enum Position
-    {
-        Actor,
-        Director,
-        Writer,
-        Producer,
-        Operator,
-        Composer,
-        Editor,
-        Other
     }
 
     /// <summary>
