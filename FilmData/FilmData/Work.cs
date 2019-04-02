@@ -10,13 +10,13 @@ namespace FilmData
     public class Work
     {
         /// <summary>
-        /// Фильм
+        /// Id фильма
         /// </summary>
-        public Film Film { get; private set; }
+        public int FilmId { get; private set; }
         /// <summary>
-        /// Актер
+        /// Id актера
         /// </summary>
-        public Actor Actor { get; private set; }
+        public int ActorId { get; private set; }
         /// <summary>
         /// Должность
         /// </summary>
@@ -24,7 +24,15 @@ namespace FilmData
         /// <summary>
         /// Описание
         /// </summary>
-        public string Description { get; private set; }
+        public string Discription { get; private set; }
+
+        public Work(int filmId, int actorId, Position position, string discription)
+        {
+            FilmId = filmId;
+            ActorId = actorId;
+            Position = position;
+            Discription = discription;
+        }
     }
 
     /// <summary>

@@ -9,25 +9,9 @@ namespace FilmData
     public class Film
     {
         /// <summary>
-        /// Список жанров
+        /// Id фильма
         /// </summary>
-        public static List<string> FilmsGenres = new List<string>()
-        {
-            "Drama", "Romance", "Comedy", "Short",
-            "Crime", "Mystery", "Thriller", "  Family",
-            "Action", "Fantasy ", "Adventure", "Sci-Fi",
-            "Animation", "History", "Horror", "Music",
-            "War", "Documentary", "Biography", "Musical",
-            "Sport", "Reality-TV", "Talk-Show", "Western",
-            "News", "Game-Show", "Film-Noir", "Adult"
-        };
-        /// <summary>
-        /// Список стран 
-        /// </summary>
-        public static List<string> FilmsCountries = new List<string>()
-        {
-
-        };
+        public int Id { get; private set; }
         /// <summary>
         /// Название фильма
         /// </summary>
@@ -60,7 +44,36 @@ namespace FilmData
         /// Постер
         /// </summary>
         public byte[] Poster { get; private set; }
-        
+
+        public Film(Data data, string name, DateTime year, DateTime duration, AgeRating ageRating, byte[] poster)
+        {
+            Id = data.GetFilmId();
+            Name = name;
+            Year = year;
+            Duration = duration;
+            AgeRating = ageRating;
+            Poster = poster;
+            Genres = new List<string>();
+            Countries = new List<string>();
+            Credits = new List<Work>();
+        }
+
+        public void AddWork(Work work)
+        {
+            Credits.Add(work);
+        }
+
+        public IEnumerable<Work> GetCredits()
+        {
+            foreach (var work in Credits)
+                yield return work;
+        }
+
+        public void RemoveWork(Work work)
+        {
+            Credits.Remove(work);
+        }
+
     }
 
     /// <summary>
