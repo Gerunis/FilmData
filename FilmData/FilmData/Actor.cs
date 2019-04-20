@@ -34,6 +34,13 @@ namespace FilmData
         /// </summary>
         public byte[] Foto { get; private set; }
 
+        public string Name => FirstName + " " + LastName;
+
+        public override string ToString()
+        {
+            return Name + " " + Dob.ToString("yyyy.MM.dd");
+        }
+
         public Actor(Data data, string firstName, string lastName, DateTime dob, byte[] foto)
         {
             Id = data.GetActorId();

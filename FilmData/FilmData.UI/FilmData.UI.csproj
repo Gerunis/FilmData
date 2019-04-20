@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilmForm.Designer.cs">
+      <DependentUpon>FilmForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddActorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddActorForm.Designer.cs">
       <DependentUpon>AddActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFilmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFilmForm.Designer.cs">
+      <DependentUpon>AddFilmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseActorForm.Designer.cs">
+      <DependentUpon>ChooseActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActorForm.Designer.cs">
+      <DependentUpon>ActorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -62,6 +86,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddActorForm.resx">
       <DependentUpon>AddActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFilmForm.resx">
+      <DependentUpon>AddFilmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseActorForm.resx">
+      <DependentUpon>ChooseActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActorForm.resx">
+      <DependentUpon>ActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilmForm.resx">
+      <DependentUpon>FilmForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -75,6 +111,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\FilmData.Data.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,6 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FilmData\FilmData.csproj">
+      <Project>{b2a22765-4a3d-49ad-9421-1d903baa3fd0}</Project>
+      <Name>FilmData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

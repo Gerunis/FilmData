@@ -12,7 +12,7 @@ namespace FilmData
         /// <summary>
         /// Id фильма
         /// </summary>
-        public int FilmId { get; private set; }
+        public int FilmId { get; set; }
         /// <summary>
         /// Id актера
         /// </summary>
@@ -26,12 +26,19 @@ namespace FilmData
         /// </summary>
         public string Discription { get; private set; }
 
-        public Work(int filmId, int actorId, Position position, string discription)
+        private string actorName;
+
+        public Work(Data data, int actorId, Position position, string discription)
         {
-            FilmId = filmId;
+            actorName = data.Actors[actorId].Name;
             ActorId = actorId;
             Position = position;
             Discription = discription;
+        }
+
+        public override string ToString()
+        {
+            return actorName + " " + Position + " " + Discription;
         }
     }
 

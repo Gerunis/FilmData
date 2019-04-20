@@ -45,14 +45,14 @@ namespace FilmData
 
         public int GetActorId()
         {
-            if (freeActorId.Count == 0)
+            if (freeActorId.Count != 0)
                 return freeActorId.Pop();
             return actorId++;
         }
 
         public int GetFilmId()
         {
-            if (freeFilmId.Count == 0)
+            if (freeFilmId.Count != 0)
                 return freeFilmId.Pop();
             return filmId++;
         }

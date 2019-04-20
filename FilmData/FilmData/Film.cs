@@ -27,7 +27,7 @@ namespace FilmData
         /// <summary>
         /// Страны производства
         /// </summary>
-        public List<string> Countries { get; private set; }
+        public string Countrie { get; private set; }
         /// <summary>
         /// Продолжительность
         /// </summary>
@@ -45,7 +45,13 @@ namespace FilmData
         /// </summary>
         public byte[] Poster { get; private set; }
 
-        public Film(Data data, string name, DateTime year, DateTime duration, AgeRating ageRating, byte[] poster)
+        public override string ToString()
+        {
+            return Name + " (" + Year.ToString("yyyy") + "). " + Countrie + '.';
+        }
+
+        public Film(Data data, string name, DateTime year, DateTime duration, AgeRating ageRating, byte[] poster,
+            List<string> genres, string countrie)
         {
             Id = data.GetFilmId();
             Name = name;
@@ -53,8 +59,8 @@ namespace FilmData
             Duration = duration;
             AgeRating = ageRating;
             Poster = poster;
-            Genres = new List<string>();
-            Countries = new List<string>();
+            Genres = genres;
+            Countrie = countrie;
             Credits = new List<Work>();
         }
 
