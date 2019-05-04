@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace FilmData.UI
 {
@@ -88,6 +90,34 @@ namespace FilmData.UI
                 data.Films[ff.Film.Id] = ff.Film;
                 listBox2.Items.Add(ff.Film);
             }
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog() { Filter = "Кино|*.filmdata" };
+
+            if (sfd.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            var xs = new XmlSerializer(typeof(DataXml));
+
+            var file = File.Create(sfd.FileName);
+
+            xs.Serialize(file, data.ToDataXml());
+            file.Close();
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog() { Filter = "Кино|*.filmdata" };
+
+            if (ofd.ShowDialog(this) != DialogResult.OK)
+                return;
+            var xs = new XmlSerializer(typeof(DataXml));
+            var file = File.OpenRead(ofd.FileName);
+            data = ((DataXml)xs.Deserialize(file)).ToData();
+            file.Close();
+            ChangeTab(null,null);
         }
     }
 }

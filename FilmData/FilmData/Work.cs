@@ -16,15 +16,15 @@ namespace FilmData
         /// <summary>
         /// Id актера
         /// </summary>
-        public int ActorId { get; private set; }
+        public int ActorId { get;  set; }
         /// <summary>
         /// Должность
         /// </summary>
-        public Position Position { get; private set; }
+        public Position Position { get;  set; }
         /// <summary>
         /// Описание
         /// </summary>
-        public string Discription { get; private set; }
+        public string Discription { get;  set; }
 
         private string actorName;
 
@@ -35,6 +35,8 @@ namespace FilmData
             Position = position;
             Discription = discription;
         }
+
+        public Work() { }
 
         public override string ToString()
         {

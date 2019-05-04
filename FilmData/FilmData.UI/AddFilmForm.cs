@@ -65,7 +65,8 @@ namespace FilmData.UI
         private void CustAdd_Click(object sender, EventArgs e)
         {
             var ff = new ChooseActorForm(data);
-            if (ff.ShowDialog(this) == DialogResult.OK)
+            ff.ShowDialog(this);
+            if(ff.Work != null)
             {
                 listBox1.Items.Add(ff.Work);
             }

@@ -27,7 +27,19 @@ namespace FilmData.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Work = new Work(data,((Actor)comboBox1.SelectedItem).Id, (Position)comboBox2.SelectedItem,textBox1.Text);
+            if(comboBox1.SelectedItem == null)
+                MessageBox.Show(
+                    "Актер не выбран. Добавьте актера.",
+                    "Нет актера.",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            else
+            {
+                Work = new Work(data, ((Actor)comboBox1.SelectedItem).Id, (Position)comboBox2.SelectedItem, textBox1.Text);
+                this.Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

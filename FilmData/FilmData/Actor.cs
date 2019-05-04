@@ -12,27 +12,27 @@ namespace FilmData
         /// <summary>
         /// Id актера
         /// </summary>
-        public int Id { get; private set; }
+        public int Id { get;  set; }
         /// <summary>
         /// Имя
         /// </summary>
-        public string FirstName { get; private set; }
+        public string FirstName { get;  set; }
         /// <summary>
         /// Фамилия
         /// </summary>
-        public string LastName { get; private set; }
+        public string LastName { get;  set; }
         /// <summary>
         /// Дата рождения
         /// </summary>
-        public DateTime Dob { get; private set; }
+        public DateTime Dob { get;  set; }
         /// <summary>
         /// Список работ
         /// </summary>
-        public List<Work> Works { get; private set; }
+        public List<Work> Works { get;  set; }
         /// <summary>
         /// Фото
         /// </summary>
-        public byte[] Foto { get; private set; }
+        public byte[] Foto { get;  set; }
 
         public string Name => FirstName + " " + LastName;
 
@@ -40,6 +40,8 @@ namespace FilmData
         {
             return Name + " " + Dob.ToString("yyyy.MM.dd");
         }
+
+        public Actor() { }
 
         public Actor(Data data, string firstName, string lastName, DateTime dob, byte[] foto)
         {
