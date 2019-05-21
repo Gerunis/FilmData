@@ -1,0 +1,50 @@
+﻿@model FilmData.DataXml
+
+@{
+    ViewData["Title"] = "Фильмы и Актеры";
+}
+
+<h2>"Фильмы и Актеры"</h2>
+
+<h3>Фильмы</h3>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Название</td>
+            <td>Год</td>
+            <td>Страна</td>
+        </tr>
+    </thead>
+    @foreach (var film in Model.FilmsList)
+    {
+        <tr>
+            <td>@film.Id</td>
+            <td>@film.Name</td>
+            <td>@film.Year.Year</td>
+            <td>@film.Countrie</td>
+        </tr>
+    }
+</table>
+
+<h3>Актеры</h3>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Дата рождения</td>
+        </tr>
+    </thead>
+    @foreach (var actor in Model.ActorsList)
+    {
+        <tr>
+            <td>@actor.Id</td>
+            <td>@actor.FirstName</td>
+            <td>@actor.LastName</td>
+            <td>@actor.Dob.ToString("dd MMMM yyyy")</td>
+        </tr>
+    }
+</table>
+

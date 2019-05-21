@@ -9,20 +9,6 @@ namespace FilmData
     [Serializable]
     public class Data
     {
-        /// <summary>
-        /// Список жанров
-        /// </summary>
-        public static List<string> FilmsGenres = new List<string>()
-        {
-            "Drama", "Romance", "Comedy", "Short",
-            "Crime", "Mystery", "Thriller", "  Family",
-            "Action", "Fantasy ", "Adventure", "Sci-Fi",
-            "Animation", "History", "Horror", "Music",
-            "War", "Documentary", "Biography", "Musical",
-            "Sport", "Reality-TV", "Talk-Show", "Western",
-            "News", "Game-Show", "Film-Noir", "Adult"
-        };
-        
         public Dictionary<int, Film> Films { get; private set; }
         public Dictionary<int, Actor> Actors { get; private set; }
 
