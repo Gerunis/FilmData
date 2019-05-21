@@ -52,7 +52,7 @@ namespace FilmData.Web.Controllers
                     }
                     db.SaveChanges();
                 }
-
+                FilmDataDbContext.UpdateLists();
                 return View(dataXml);
             }
         }

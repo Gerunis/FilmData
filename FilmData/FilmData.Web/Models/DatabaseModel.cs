@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,10 @@ namespace FilmData.Web.Models
     {
         public DbSet<DbFilm> Films { get; set; }
         public DbSet<DbActor> Actors { get; set; }
+
+        public static List<DbFilm> LocalFilms;
+        public static List<DbActor> LocalActors;
+
         public static string ConnectionString { get; set; }
 
         public FilmDataDbContext()
@@ -28,6 +33,15 @@ namespace FilmData.Web.Models
         {
             optionsBuilder.UseNpgsql(ConnectionString);
             base.OnConfiguring(optionsBuilder);
+        }
+
+        public static void UpdateLists()
+        {
+            using (var db = new FilmDataDbContext())
+            {
+                LocalActors = db.Actors.Include(s => s.Works).ToList();
+                LocalFilms = db.Films.Include(s => s.Credits).ToList();
+            }
         }
     }
 

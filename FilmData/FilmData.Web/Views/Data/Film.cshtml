@@ -1,0 +1,38 @@
+﻿@model DbFilm
+@{
+    ViewData["Title"] = Model == null ? "Ошибка!" : Model.Name;
+}
+
+@if (Model == null)
+{
+    <h2>Ошибка! Фильм не найден.</h2>
+}
+else
+{
+    <h3><img src="FilmImage?id=@Model.Id" /></h3>
+    <h2>@Model.Name (@Model.Year.ToString("yyyy"))</h2>
+    <h3>@Model.Country</h3>
+    <h4>Продолжительность: @Model.Duration.ToString("hh:mm")</h4>
+    <h4>Возростной рейтинг: @Model.AgeRating</h4>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <td>Актер</td>
+                <td>Должность</td>
+                <td>Описание</td>
+            </tr>
+        </thead>
+        @if (Model.Credits != null)
+        {
+            foreach (var work in Model.Credits)
+            {
+                <tr>
+                    <td><a href="Actor?id=@work.Actor.Id">@work.Actor.FirstName @work.Actor.LastName</a></td>
+                    <td>@work.Position</td>
+                    <td>@work.Discription</td>
+                </tr>
+            }
+        }
+    </table>
+}
+

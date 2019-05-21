@@ -1,0 +1,27 @@
+﻿@model System.Collections.Generic.List<FilmData.Web.Models.DbFilm>
+
+@{
+    ViewData["Title"] = "Фильмы";
+}
+
+<h2>Фильмы</h2>
+
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <td>Фото</td>
+            <td>Название</td>
+            <td>Страна</td>
+            <td>Длительность</td>
+        </tr>
+    </thead>
+    @foreach (var film in Model)
+    {
+        <tr>
+            <td><img src="FilmImage?id=@film.Id" /></td>
+            <td><a href="Film?id=@film.Id">@film.Name (@film.Year.ToString("yyyy"))</a></td>
+            <td>@film.Country</td>
+            <td>@film.Duration.ToString("hh:mm")</td>
+        </tr>
+    }
+</table>

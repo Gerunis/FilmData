@@ -67,7 +67,7 @@ namespace FilmData.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Upload}/{action=Index}/{id?}");
+                    template: "{controller=Data}/{action=Films}/{id?}");
             });
         }
     }
