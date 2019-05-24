@@ -9,17 +9,15 @@
 <table class="table table-bordered table-responsive table-hover">
     <thead>
     <tr>
-        <td>Фото</td>
-        <td>Имя</td>
-        <td>Дата рождения</td>
-    </tr>
+        <td style="width: 260px">Фото</td>
+        <td >Имя</td>
     </thead>
     @foreach (var actor in Model)
     {
         <tr>
-            <td><img src="ActorImage?id=@actor.Id" /></td>
-            <td><a href="Actor?id=@actor.Id">@actor.FirstName @actor.LastName</a></td>
-            <td>@actor.Dob.ToString("dd.MM.yyyy")</td>
+            <td><img src="ActorImage?id=@actor.Id" width=250 /></td>
+            <td><h2><a href="Actor?id=@actor.Id">@actor.FirstName @actor.LastName</a></h2>
+                <h4>@actor.Dob.ToString("dd.MM.yyyy")</h4></td>
         </tr>
     }
 </table>

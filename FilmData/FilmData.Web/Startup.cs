@@ -67,7 +67,7 @@ namespace FilmData.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Data}/{action=Films}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

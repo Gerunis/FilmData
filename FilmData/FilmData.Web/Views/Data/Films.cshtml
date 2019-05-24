@@ -9,7 +9,7 @@
 <table class="table table-bordered table-responsive table-hover">
     <thead>
         <tr>
-            <td>Фото</td>
+            <td style="width: 260px">Постер</td>
             <td>Название</td>
             <td>Страна</td>
             <td>Длительность</td>
@@ -18,10 +18,10 @@
     @foreach (var film in Model)
     {
         <tr>
-            <td><img src="FilmImage?id=@film.Id" /></td>
-            <td><a href="Film?id=@film.Id">@film.Name (@film.Year.ToString("yyyy"))</a></td>
-            <td>@film.Country</td>
-            <td>@film.Duration.ToString("hh:mm")</td>
+            <td><img src="FilmImage?id=@film.Id" width="250"/></td>
+            <td><h3><a href="Film?id=@film.Id">@film.Name (@film.Year.ToString("yyyy"))</a></h3></td>
+            <td><h4>@film.Country</h4></td>
+            <td><h4>@film.Duration.ToString("hh:mm")</h4></td>
         </tr>
     }
 </table>

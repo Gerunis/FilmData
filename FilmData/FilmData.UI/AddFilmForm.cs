@@ -25,7 +25,7 @@ namespace FilmData.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var ofd = new OpenFileDialog() { Filter = "Фотография|*.jpg" };
+            var ofd = new OpenFileDialog() { Filter = "Фотография|*.jpg;*.jpeg;*.bmp" };
             var dr = ofd.ShowDialog(this);
             if (dr == DialogResult.OK)
             {
