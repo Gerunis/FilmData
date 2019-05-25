@@ -9,11 +9,18 @@
 }
 else
 {
-    <h3><img src="FilmImage?id=@Model.Id" /></h3>
-    <h2>@Model.Name (@Model.Year.ToString("yyyy"))</h2>
-    <h3>@Model.Country</h3>
-    <h4>Продолжительность: @Model.Duration.ToString("hh:mm")</h4>
-    <h4>Возростной рейтинг: @Model.AgeRating</h4>
+    <table class="table table-responsive">
+        <tr>
+            <td style="width: 1px"><h3><img src="FilmImage?id=@Model.Id" height="500" /></h3></td>
+            <td>
+                <br/>
+                <h2>@Model.Name (@Model.Year.ToString("yyyy"))</h2>
+                <h3>@Model.Country</h3>
+                <h4>Продолжительность: @Model.Duration.ToString("hh:mm")</h4>
+                <h4>Возростной рейтинг: @Model.AgeRating</h4>
+            </td>
+        </tr>
+    </table>
     <table class="table table-bordered table-responsive table-hover">
         <thead>
             <tr>

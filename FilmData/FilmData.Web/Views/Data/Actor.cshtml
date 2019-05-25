@@ -5,33 +5,41 @@
 
 @if (Model == null)
 {
-    <h2>Ошибка! Актер не найден.</h2>
+<h2>Ошибка! Актер не найден.</h2>
 }
 else
 {
-    <h3><img src="ActorImage?id=@Model.Id" /></h3>
-    <h2>@Model.FirstName @Model.LastName</h2>
-    <h3>@Model.Dob.ToString("dd.MM.yyyy")</h3>
-    <table class="table table-bordered table-responsive table-hover">
-        <thead>
+<table class="table table-responsive">
+    <tr>
+        <td style="width: 1px"><h3><img src="ActorImage?id=@Model.Id" height="500" /></h3></td>
+        <td>
+            <br />
+            <h2>@Model.FirstName @Model.LastName</h2>
+            <h3>@Model.Dob.ToString("dd.MM.yyyy")</h3>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
         <tr>
             <td>Фильм</td>
             <td>Должность</td>
             <td>Описание</td>
         </tr>
-        </thead>
-        @if (Model.Works != null)
+    </thead>
+    @if (Model.Works != null)
         {
             foreach (var work in Model.Works)
             {
-                <tr>
-                    <td><a href="Film?id=@work.Film.Id">@work.Film.Name (@work.Film.Year.ToString("yyyy"))</a></td>
-                    <td>@work.Position</td>
-                    <td>@work.Discription</td>
-                </tr>
+    <tr>
+        <td><a href="Film?id=@work.Film.Id">@work.Film.Name (@work.Film.Year.ToString("yyyy"))</a></td>
+        <td>@work.Position</td>
+        <td>@work.Discription</td>
+    </tr>
             }
         }
-    </table>
+</table>
 }
 
 
